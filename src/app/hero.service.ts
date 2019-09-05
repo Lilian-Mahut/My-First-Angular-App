@@ -118,8 +118,11 @@ export class HeroService {
   private log(message: string) {
     let maDate = new Date;
     let monHeure = maDate.getHours() + ":" + maDate.getMinutes();
-    if (maDate.getMinutes() <10) {
-        monHeure = maDate.getHours() + ":0" + maDate.getMinutes();
+    if (maDate.getHours() < 10) {
+      monHeure = "0" + maDate.getHours() + maDate.getMinutes();
+    }
+    if (maDate.getMinutes() < 10) {
+      monHeure = maDate.getHours() + ":0" + maDate.getMinutes();
     }
     this.messageService.add(`[${monHeure}] ${message}`);
   }
